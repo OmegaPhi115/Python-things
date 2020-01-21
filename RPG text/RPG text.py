@@ -97,8 +97,6 @@ def RPGprint(text, linesize=120, pause_intervals=2):
             i += 1
         return inputlist
 
-
-
     def remove_duplicate_pauses(inputlist):
         lastele = ""
         outputlist = []
@@ -108,10 +106,17 @@ def RPGprint(text, linesize=120, pause_intervals=2):
             lastele = ele
         return outputlist
 
-    def remove_empty_strings(inputlist=[]):
+    def remove_empty_strings(inputlist):
         while "" in inputlist:
             inputlist.remove("")
         return inputlist
+
+    def remove_wierd_spaces(inputlist):
+        for stringy in inputlist:
+            if stringy == "<pause>" or stringy == "<spause>":
+                pass
+            else:
+                while stringy
 
     sentences = remove_empty_strings(sentences)
     sentences = add_pauses(sentences, pause_intervals)
@@ -135,6 +140,8 @@ def RPGprint(text, linesize=120, pause_intervals=2):
 
     for thing in sentences:
         if thing == "<pause>" or thing == "<spause>":
+            print("")
+            print("Press enter to continue")
             input("")
         else:
             readstring(thing)
